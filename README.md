@@ -80,7 +80,6 @@ ls /efs-mount
 ~$ ls efs-mount
 -> `DTQUbuntu.txt` & `DTQLinux.txt`
 ```
----
 ### D) mount in Linux
 ```shell
 ~$ sudo mkdir /efs-mount-2
