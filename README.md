@@ -6,8 +6,8 @@
 [![Report an issue](https://img.shields.io/badge/Support-Issues-green)](https://github.com/tquangdo/aws-efs-connect-ec2-demo/issues/new)
 
 ## reference
-[linuxhint](https://linuxhint.com/mount-efs-ec2-instances/)
-[aws](https://docs.aws.amazon.com/efs/latest/ug/troubleshooting-efs-mounting.html)
+1. [linuxhint](https://linuxhint.com/mount-efs-ec2-instances/)
+2. [aws](https://docs.aws.amazon.com/efs/latest/ug/troubleshooting-efs-mounting.html)
 
 ## EFS
 - create `DTQEFSDemo` with:
@@ -69,17 +69,19 @@ df -T | grep nfs4
 ls /efs-mount
 -> `DTQUbuntu.txt`
 ```
-### C) EC2 & Linux
+### C) change file/folder between Ubuntu & Linux
 #### Linux
 ```shell
 ~$ sudo touch /efs-mount/DTQLinux.txt
 ```
-#### EC2
+#### Ubuntu
+- will auto reflect to Ubuntu
 ```shell
 ~$ ls efs-mount
 -> `DTQUbuntu.txt` & `DTQLinux.txt`
 ```
-#### Linux
+---
+### D) mount in Linux
 ```shell
 ~$ sudo mkdir /efs-mount-2
 sudo mount -t efs -o tls fs-0cf6164f211e8bdd7:/ /efs-mount-2 # Linux default auto installed efs cli
