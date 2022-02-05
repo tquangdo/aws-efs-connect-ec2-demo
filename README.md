@@ -5,6 +5,8 @@
 ![Forks](https://img.shields.io/github/forks/tquangdo/aws-efs-connect-ec2-demo?color=f05340)
 [![Report an issue](https://img.shields.io/badge/Support-Issues-green)](https://github.com/tquangdo/aws-efs-connect-ec2-demo/issues/new)
 
+![detail](screenshots/detail.png)
+
 ## reference
 1. [linuxhint](https://linuxhint.com/mount-efs-ec2-instances/)
 2. [aws](https://docs.aws.amazon.com/efs/latest/ug/troubleshooting-efs-mounting.html)
