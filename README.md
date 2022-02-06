@@ -98,3 +98,38 @@ df -T | grep nfs4
 sudo apt-get install nfs-common # (for Ubuntu)
 sudo mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport fs-07ab2b2fd07cc4ead.efs.us-west-2.amazonaws.com:/ /mnt/efstest
 ```
+### config `/mnt/nfs` in `filesystems` example
+- `config/filesystems.php`
+```php
+    /*
+    |--------------------------------------------------------------------------
+    | Filesystem Disks
+    |--------------------------------------------------------------------------
+    */
+
+    'disks' => [
+        'local' => [
+            'driver' => 'local',
+            'root' => storage_path('app'),
+        ],
+
+        'public' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
+        's3' => [
+            'driver' => 's3',
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION'),
+            'bucket' => env('AWS_BUCKET'),...
+        ],
+        'zip' => [
+            'driver' => 'local',
+            'root' => env("AWS_MOUNTING_DIR", "/mnt/nfs"),
+        ],
+    ],
+```
